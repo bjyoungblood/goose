@@ -43,9 +43,9 @@ func (es *EventStream) Notify(event string, bytes []byte) {
 
 	lines := strings.Split(string(bytes), "\n")
 
-	data := ""
+	data := "event: " + event + "\n"
 	for _, l := range lines {
-		data += event + ": " + l + "\n"
+		data += "data: " + l + "\n"
 	}
 
 	sz := len(data) + 1
